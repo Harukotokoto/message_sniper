@@ -30,6 +30,15 @@ export default new Command({
       const type = interaction.options.getSubcommand();
 
       await snipe.purge(interaction.user.id, type);
+
+      await interaction.followUp({
+        embeds: [
+          {
+            title: "保存されていたデータを削除しました",
+            color: Colors.Red
+          }
+        ]
+      })
     },
     message: async ({ message, args }) => {
       const snipe = new Snipe();
@@ -41,7 +50,7 @@ export default new Command({
       } else if (args[0] === 'edit') {
         await snipe.purge(message.author.id, 'edit');
       } else {
-        await message.reply({
+        return await message.reply({
           embeds: [
             {
               title: 'エラーが発生しました',
@@ -51,6 +60,15 @@ export default new Command({
           ],
         });
       }
+
+      await message.reply({
+        embeds: [
+          {
+            title: "保存されていたデータを削除しました",
+            color: Colors.Red
+          }
+        ]
+      })
     },
   },
 });

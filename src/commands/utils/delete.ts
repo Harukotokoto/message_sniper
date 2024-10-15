@@ -25,6 +25,15 @@ export default new Command({
       const cmd = interaction.options.getSubcommand();
 
       await snipe.config(interaction.user.id, 'delete', cmd === 'allow');
+
+      await interaction.followUp({
+        embeds: [
+          {
+            title: "保存設定を更新しました",
+            color: Colors.Green
+          }
+        ]
+      })
     },
     message: async ({ message, args }) => {
       const snipe = new Snipe();
@@ -34,7 +43,7 @@ export default new Command({
       } else if (args[0] === 'deny') {
         await snipe.config(message.author.id, 'delete', false);
       } else {
-        await message.reply({
+        return await message.reply({
           embeds: [
             {
               title: 'エラーが発生しました',
@@ -44,6 +53,15 @@ export default new Command({
           ],
         });
       }
+
+      await message.reply({
+        embeds: [
+          {
+            title: "保存設定を更新しました",
+            color: Colors.Green
+          }
+        ]
+      })
     },
   },
 });
