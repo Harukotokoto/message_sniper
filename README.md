@@ -1,12 +1,50 @@
-# Discord.js Base Handler
+# Message Sniper
 
-Discord Botを作成するための基盤です
+導入すると削除されたメッセージを閲覧することができます
 
-## 使用方法
+**※データベースの軽量化のため、1,2週間に1度ログが削除されます。**
 
-1. `yarn install`または`npm install`で必要なパッケージをインストールしてください
-2. `.env`ファイルを編集し、TOKENを入力してください
-3. `yarn build`でビルドし、`yarn start`で起動します。
+## スラッシュコマンド
 
-- ※`yarn dev`でショートカットできます
-- ※`yarn format`でPrettierでフォーマットができます
+1. 削除されたメッセージを見る
+   - `/snipe delete`
+2. 編集されたメッセージを見る
+   - `/snipe edit`
+3. 2つ以上前のメッセージを見る
+
+   - `/snipe delete count:2`
+   - `/snipe edit count:2`
+
+4. 削除されたメッセージの保存の許可を切り替え
+   - `/delete allow`
+   - `/delete deny`
+5. 編集されたメッセージの保存の許可を切り替え
+   - `/edit allow`
+   - `/edit deny`
+6. 保存されたログを削除する
+   - `/purge all`
+   - `/purge delete`
+   - `/purge edit`
+
+## チャットコマンド
+
+1. 削除されたメッセージを見る
+   - `s#snipe delete`
+   - `s#snipe`
+2. 編集されたメッセージを見る
+   - `s#snipe edit`
+3. 2つ以上前のメッセージを見る
+
+   - `s#snipe delete ?c 2`
+   - `s#snipe edit ?c 2`
+
+4. 削除されたメッセージの保存の許可を切り替え
+   - `s#delete allow`
+   - `s#delete deny`
+5. 編集されたメッセージの保存の許可を切り替え
+   - `s#edit allow`
+   - `s#edit deny`
+6. 保存されたログを削除する
+   - `s#purge all`
+   - `s#purge delete`
+   - `s#purge edit`

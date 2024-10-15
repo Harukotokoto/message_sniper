@@ -6,9 +6,7 @@ import {
 } from '../../lib/modules/classes/CommandError';
 
 export default new Event('messageCreate', async (message) => {
-  const prefix = '.';
-
-  console.log(message);
+  const prefix = 's#';
 
   const Error = new CommandError(message);
 

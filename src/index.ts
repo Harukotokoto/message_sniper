@@ -3,6 +3,9 @@ import { Client } from './lib/modules/Client';
 
 export const client = new Client({
   intents: ['Guilds', 'GuildMessages', 'MessageContent'],
+  allowedMentions: {
+    parse: [],
+  },
 });
 
 console.clear();
